@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,700&display=swap');
+
+@import 'normalize';
+@import 'mixins';
+
+$text: #fbf6e4;
+$text2: #e1c2f1;
+$accent:#e66a64;
+$text-footer:#b9b9cc;
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    font-size: 10px;
+}
+
+
+
+body {
+    min-height: 100%;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: $text;
+    background-color: #e5eeee;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+}
+
+.container{
+    width: 400px;
+    min-height: 500px;
+    background-image: url(../img/body.jpg), linear-gradient(to right top, #3023ae, #c86dd7);
+    background-repeat: no-repeat, repeat;
+    background-position: center, center;
+    background-size: cover;
+    position: relative;
+    // box-shadow: 13px 22px 10px 0.24px rgba(90, 90, 90, 0.1);
+    box-shadow: 2px 15px 15px 0px rgba(0, 0, 0, 0.35); 
+
+}
+
+.form{
+    width: 260px;
+    margin: 0 auto;
+
+    &__head{
+        display: flex;
+        padding: 50px 0;
+    }
+
+    &__action{
+        text-decoration: none;
+        @include text($text2, "Quicksand", 1.8rem, 700, 1);
+
+        @include hover{
+            @include accent()
+        }
+
+        &--active {
+            @include accent()
+        }
+    }
+
+    &__title a{
+        margin-right: 30px; 
+    }
+
+    &__label{
+        display: block;
+        padding-bottom: 10px;
+        @include text($text, "Quicksand", 1.6rem, 700, 1);
+    }
+
+    &__input{
+        display: block;
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 10px;
+        @include text($text, "Quicksand", 1.6rem, 400, 1);
+        border: 2px solid #8e7dc3;
+        background-color: transparent;
+
+        &:focus{
+            outline: none;
+            border-color: #8e7dc3;
+            background-color: #8e7dc3;
+        }
+    }
+
+    &__checkbox{
+        margin-bottom: 40px;
+        input{
+            visibility: hidden;
+            position: absolute;
+            left: 0;
+            padding-left: 10px;
+        }
+
+        label{
+        position: relative;
+        @include text($text, "Quicksand", 1.3rem, 700, 1);
+        
+        &::before{
+            margin-right: 6px;
+            vertical-align: bottom;
+            content: "";
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background-color: #23ae92;
+            transition: background-image 1s ease-in;
+            }
+        }
+        
+        input:checked+label:before{
+            background-image: url(../img/check.svg);
+                background-position: center;
+            background-repeat: no-repeat;
+        }
+    }
+
+    &__btn{
+        width: 100%;
+        @include text($text, "Quicksand", 1.8rem, 700, 1);
+        background-color: #23ae92;
+        border: 2px solid #23ae92;
+        padding: 1.5rem;
+        text-decoration: none;
+        transition: all .25s ease-in-out;
+        display: inline-block;
+        @include hover{
+            color: #23ae92;
+            background-color: transparent;
+        }
+    }
+
+    &__footer{
+        display: flex;
+        justify-content: space-between;
+        margin: 30px 0;
+    }
+
+    &__subtitle{
+        text-decoration: none;
+        @include text($text-footer, "Quicksand", 1.3rem, 400, 1);
+       
+        max-width: 120%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        position: relative;
+            
+        &:after { 
+                content: "";
+                position: absolute;
+                bottom: -5px;
+                height: .5px;
+                background-color: $text-footer;
+                opacity: .8;
+        }
+        &:after {
+                left: 0px;
+                right: -10px;
+        }
+        
+       @include hover{
+           @include accent()
+       }
+    }
+
+}
+
+

@@ -1,0 +1,145 @@
+
+
+@import 'normalize';
+@import 'mixins';
+
+$text: #7a7b7f;
+$a-text: #e12a6c;
+$title-text:#1b1c1d;
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    font-size: 10px;
+}
+
+h1 {
+    @include text($title-text, "Arial", 2.4rem, 700, 0.9);
+}
+
+body {
+    min-height: 100%;
+    @include text($text, "Arial", 1.3rem, 400, 1.5);
+    background-color: #dd2476;
+    background-image: linear-gradient(61deg, #ff512f, #dd2476);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+}
+
+.form{
+    width: 461px;
+    min-height: 471px;
+    background-color: #fff;
+    padding: 31px;
+
+    &__heading{
+        display: flex;
+        align-items: center;
+    }
+
+    &__key{
+        margin-right: 10px;
+    }
+
+    &__subtitle{
+        margin-bottom: 38px;
+    }
+
+    &__footer{
+        @include text($text, "Arial", 1.2rem, 400, 1.7);
+    }
+
+    &__contact{
+        display: inline-block;
+        width: 100%;
+        border: none;
+        background-color: #f0f0f0;
+        border-radius: 5px;
+        transition: all .25s ease-in;
+        padding: 15px;
+        font-size: 1.3rem;
+        color: $a-text;
+
+        &:focus + .form__label,
+        &.filld + .form__label{
+            color: transparent;
+            
+        }
+
+        @include hover{
+                outline: 0;
+                outline-offset: 0;
+        }
+    }   
+    
+    
+    &__label{
+        font-size: 1.3rem;
+        position: absolute;
+        left: 0;
+        top: 100%;
+        transform: translate(0, -100%);
+        padding: 15px;
+    }
+
+    &__row{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 16px;
+    }
+
+    &__reg{
+        width: calc(50% - 7.5px);
+        position: relative;
+        font-size: 0;
+
+        &--lg{
+            width:100%;
+        }
+    }
+
+    &__buttons{
+        width: 100%;
+        background-color: #ea355a;
+        position: relative;
+        
+    }
+
+    &__btn{
+        width: 100%;
+        color: #fff;
+        background-color: #ea355a;
+        border: 2px solid #ea355a;
+        padding: 1.8rem;
+        margin-bottom: 24px;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: all .2s ease-in-out;
+        display: inline-block;
+        box-shadow: 0 3px 0 #bd1962;
+        @include text(#fff, "Arial", 1.8rem, 700, 1.1);
+
+        @include hover{
+            color: #ea355a;
+            background-color: transparent;
+            box-shadow: none;
+        }
+    }
+    
+}
+
+
+a{
+    text-decoration: none;
+    color: $a-text;  
+}
+
+textarea.form__contact{
+    resize: none;
+}
+

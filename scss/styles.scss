@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700&display=swap');
+
+@import 'normalize';
+@import 'mixins';
+
+$text: #fff;
+$footer-text: #787d87;
+$title-text:#538fff;
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    font-size: 10px;
+}
+
+
+
+body {
+    min-height: 100%;
+    font-family: 'Lato', sans-serif;
+    font-size: 2rem;
+    font-weight: 400;
+    background-color: #bac5db;
+    padding: 50px;
+    line-height: 2;
+}
+
+
+
+a{
+    text-decoration: none;
+    color: #000;
+    @include hover{
+        color: red
+    }
+}
